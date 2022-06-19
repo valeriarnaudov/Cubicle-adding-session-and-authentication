@@ -27,6 +27,10 @@ const cubeSchema = new mongoose.Schema({
             ref: 'Accessory',
         },
     ],
+    owener: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User',
+    },
 });
 
 cubeSchema.path("imageUrl").validate(function () {
