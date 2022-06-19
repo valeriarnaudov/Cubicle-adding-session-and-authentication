@@ -41,11 +41,7 @@ exports.login = async ({ username, password }) => {
     }
 
     let result = new Promise((resolve, reject) => {
-        jwt.sign(
-            { _id: user._id, username: user.username },
-            secret,
-            { expiresIn: "2d" },
-            (err, token) => {
+        jwt.sign({ _id: user._id, username: user.username },secret,{ expiresIn: "2d" },(err, token) => {
                 if (err) {
                     return reject(err);
                 }
